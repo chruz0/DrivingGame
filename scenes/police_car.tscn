@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=4 uid="uid://bjgpfxcrycpkf"]
 
 [ext_resource type="Script" uid="uid://eutnfowhaotj" path="res://scripts/police_car.gd" id="1_x6mjs"]
-[ext_resource type="Texture2D" path="res://assets/colormap.png" id="2_2ao51"]
+[ext_resource type="Texture2D" uid="uid://m8s6l30a7gn3" path="res://assets/policeCar/colormap.png" id="2_2ao51"]
 [ext_resource type="Script" uid="uid://cjm6ntxgwm5lh" path="res://scripts/cam_arm.gd" id="3_2ao51"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ikjsd"]
