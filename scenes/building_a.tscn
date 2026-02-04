@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://8icayt3ejs1r"]
+
+[ext_resource type="PackedScene" uid="uid://cc8r7njqfwjom" path="res://assets/city/building-a.fbx" id="1_ymx7c"]
+[ext_resource type="Texture2D" uid="uid://0nqhmy2y3g4c" path="res://assets/city/Textures/variation-b.png" id="2_8wats"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2ne4"]
+albedo_texture = ExtResource("2_8wats")
+
+[node name="building-a" instance=ExtResource("1_ymx7c")]
+
+[node name="building-a" parent="." index="0"]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_v2ne4")

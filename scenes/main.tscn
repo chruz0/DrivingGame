@@ -1,9 +1,39 @@
-[gd_scene format=3 uid="uid://cbydeqg0tnvym"]
+[gd_scene load_steps=8 format=3 uid="uid://cbydeqg0tnvym"]
+
+[ext_resource type="PackedScene" uid="uid://bjgpfxcrycpkf" path="res://scenes/police_car.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://8icayt3ejs1r" path="res://scenes/building_a.tscn" id="2_sugp2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sgp6g"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_o5qli"]
+sky_material = SubResource("ProceduralSkyMaterial_sgp6g")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_o5qli")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgp6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5qli"]
+albedo_color = Color(0.6117647, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
 
 [node name="Main" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wfyh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 353.3, 0)
+shadow_enabled = true
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(7.867, 0, -9.048257e-08, 0, -10, 0, 6.87755e-07, 0, 1.035, 0, 10.5, 0)
+transform = Transform3D(2.361, 0, -4.66577e-08, 0, -3, 0, 3.565011e-07, 0, 0.309, 0, 2.7000048, -12.400003)
 use_collision = true
 size = Vector3(3.6000001, 2.1000001, 1)
 
@@ -11,3 +41,32 @@ size = Vector3(3.6000001, 2.1000001, 1)
 transform = Transform3D(2.2809594, -1.0658141e-14, 3.1763736e-22, 0, -8.7422784e-08, -2.812948, 1.1368684e-13, 2.0000014, -1.2295794e-07, 0, 0.5, 0)
 operation = 2
 sides = 32
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_sgp6g")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(2.1855695e-07, 1.32004715e-14, 5, 7.54979e-07, -2, -1.6940659e-21, 5, 3.019916e-07, -2.1855695e-07, 29.7, 1.4499975, -6.6000004)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 1, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 1.4210855e-14, 0, 1, 30.6, 24.900003, 74.7)
+use_collision = true
+radius = 5.0
+rings = 3
+material = SubResource("StandardMaterial3D_o5qli")
+
+[node name="policeCar" parent="." instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9000001, 6.6, -1.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1561.825)
+use_collision = true
+size = Vector3(50, 1, 3023.6501)
+
+[node name="building-a" parent="." instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.150001, -0.5, 3.45)
